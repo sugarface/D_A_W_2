@@ -35,17 +35,12 @@
         <!-- Navbar Area -->
         <div class="newsbox-main-menu">
             <div class="classy-nav-container breakpoint-off">
-                <div class="container-fluid">
+                <div class="container">
                     <!-- Menu -->
                     <nav class="classy-navbar justify-content-between" id="newsboxNav">
 
                         <!-- Nav brand -->
                         <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
-
-                        <!-- Navbar Toggler -->
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
-                        </div>
 
                         <!-- Menu -->
                         <div class="classy-menu">
@@ -84,8 +79,25 @@
                                             </ul>
                                         </div>
                                     </li>
-                                    <li><a href="#">ĐĂNG NHẬP</a></li>
-                                    <li><a href="#">ĐĂNG KÝ</a></li>
+                                    <li>
+                                        <div class="search-form">
+                     <form action="/search" method="get">
+                        <input type="search" name="txtSearch" class="form-control" placeholder="Search ...">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                     </form>
+                  </div>
+                                    </li>
+                                    <li>
+                                        <div class="top-social-info">
+                                 <a href="/account/login" data-toggle="tooltip" data-placement="bottom"
+                                    title="Đăng nhập">Login</a>
+                                 <li class="list-inline-item">/</li>
+                                 <a href="/account/register" data-toggle="tooltip" data-placement="bottom"
+                                    title="Đăng ký">Register</a>
+                              </div>
+                                    </li>
+                                
+                                
                                 </ul>
                             </div>
                             <!-- Nav End -->

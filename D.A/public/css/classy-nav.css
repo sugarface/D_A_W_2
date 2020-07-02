@@ -549,10 +549,10 @@ img {
 
 .breakpoint-off .classynav ul li.megamenu-item:hover .megamenu,
 .breakpoint-off .classynav ul li.megamenu-item:focus .megamenu {
-    top: 100%;
+    top: 60%;
     visibility: visible;
     max-width: 60%;
-    margin-left: 52.5%;
+    margin-left: 33.5%;
     opacity: 1;
 }
 
