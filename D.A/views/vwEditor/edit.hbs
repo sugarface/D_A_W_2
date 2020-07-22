@@ -1,0 +1,233 @@
+{{#section 'css'}}
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
+
+<script src="/public/ckeditor/ckeditor.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+<link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+{{/section}}
+
+{{#section 'js'}}
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            cloudServices: {
+                tokenUrl: 'https://40026.cke-cs.com/token/dev/KfpkgsMLg4H3MScxXYcy7tQSOnwlgQzrxdgVstsi5dBdn3S4PYlHS0cwq8Vm',
+                uploadUrl: 'https://40026.cke-cs.com/easyimage/upload/'
+            }
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script>
+    $(function () {
+        $('#NgayDang').datetimepicker({
+            // format: 'd/m/Y H:i'
+            format: 'Y/m/d',
+            timepicker: false,
+            mask: true,
+        });
+        $('#file').fileinput({
+            theme: 'fa',
+            dropZoneEnabled: false,
+            allowedFileExtensions: ['png', 'jpg', 'gif'],
+            uploadClass: 'btn btn-success',
+            uploadUrl: '/public/images/',
+            uploadAsync: false,
+        });
+
+        tinymce.init({
+            selector: '#text-right',
+            menubar: false,
+            height: 600,
+            plugins: 'paste image link autolink lists table media',
+            toolbar: [
+                'undo redo | bold italic underline strikethrough | numlist bullist | alignleft aligncenter alignright',
+                'forecolor backcolor',
+                'table link image media',
+            ],
+            image_caption: true,
+        });
+    })
+</script>
+<script>
+    $(function () {
+
+        $('#insertPostFrom').validate({
+            rules: {
+                TieuDe: {
+                    required: true
+                },
+                ChuyenMucChaID: {
+                    valueNotEquals: "default"
+                },
+                ChuyenMucConID: {
+                    valueNotEquals: "default"
+                },
+                file: {
+                    required: true
+                },
+                Nhan: {
+                    required: true
+                },
+                {{!-- NgayDang: {
+                required: true
+            }, --}}
+        NDTomTat: {
+            required: true
+        }
+            },
+        messages: {
+            TieuDe: {
+                required: 'Bạn vui lòng nhập tiêu đề bài viết.'
+            },
+            file: {
+                required: 'Bạn vui lòng upload hình ảnh.'
+            },
+            Nhan: {
+                required: 'Bạn vui lòng nhập tag.'
+            },
+                {{!-- NgayDang: {
+            required: 'Bạn vui lòng nhập ngày đăng.'
+        }, --}}
+        ChuyenMucChaID: {
+            valueNotEquals: "Vui lòng chọn chuyên mục cha."
+        },
+        ChuyenMucConID: {
+            valueNotEquals: "Vui lòng chọn chuyên mục con."
+        },
+        NDTomTat: {
+            required: 'Bạn vui lòng nhập nội dung tóm tắt.'
+        }
+            },
+        errorElement: 'small',
+        errorClass: 'help-block text-danger',
+        validClass: 'is-valid',
+        highlight: function (e) {
+            $(e).removeClass('is-valid').addClass('is-invalid');
+        },
+        unhighlight: function (e) {
+            $(e).removeClass('is-invalid').addClass('is-valid');
+        },
+        });
+
+    })
+</script>
+{{/section}}
+
+<div class="container">
+    {{#if this.error}}
+    <div class="alert alert-danger" role="alert">
+        ID không hợp lệ! <a href="/editor" class="alert-link"> Quay lại List!</a>
+    </div>
+    {{else}}
+    <h2 class="mt-5">CHỈNH SỬA BÀI VIẾT</h2>
+    <div class="shadow p-3 mb-5 bg-white rounded mt-5">
+        <form action="" method="POST" enctype="multipart/form-data">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">ID bài viết</span>
+                </div>
+                <input readonly type="text" class="form-control" id="ProID" value="{{this.baiviet.ProID}}" name="ProID">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Ảnh đại diện</span>
+                </div>
+                <input readonly type="text" class="form-control" id="AnhDaiDien" value="{{this.baiviet.AnhDaiDien}}"
+                    name="AnhDaiDien">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Tiêu đề</span>
+                </div>
+                <input readonly type="text" class="form-control" id="TieuDe" value="{{this.baiviet.TieuDe}}"
+                    name="TieuDe">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Chuyên mục</span>
+                </div>
+                <input readonly type="text" class="form-control" id="ChuyenMucChaID"
+                    value="{{this.baiviet.ChuyenMucChaID}}" name="ChuyenMucChaID">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Chuyên mục con</span>
+                </div>
+                <input readonly type="text" class="form-control" id="ChuyenMucConID"
+                    value="{{this.baiviet.ChuyenMucConID}}" name="ChuyenMucConID">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Tag</span>
+                </div>
+                <input readonly type="text" class="form-control" placeholder="" aria-label="Username"
+                    aria-describedby="basic-addon1" id="Nhan" value="{{this.baiviet.Nhan}}" name="Nhan">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Tình Trạng</label>
+                </div>
+                <select required class="custom-select" id="TinhTrang" name="TinhTrang" value="{{this.baiviet.TinhTrang}}">
+                    <option value="default">Trạng thái : {{this.baiviet.TinhTrang}}</option>
+                    <option value="0">Bị từ chối</option>
+                    <option value="1">Đang chờ duyệt</option>
+                    <option value="2">Đã duyệt</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Ngày đăng</label>
+                <input required id="datepicker" name="NgayDang">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Nội dung tóm tắt</span>
+                </div>
+                <input readonly type="text" class="form-control" id="NDTomTat" value="{{this.baiviet.NDTomTat}}"
+                    name="NDTomTat">
+            </div>
+            <textarea readonly name="NoiDung" id="editor" rows="5" value=""></textarea>
+            <input name="" id="NoiDungText" class="btn btn-primary" type="text" value="{{this.baiviet.NoiDung}}">
+            {{/if}}
+            <div class="card-footer text-right">
+                <a class="btn btn-info" href="/editor" role="button" title="Back">
+                    <i class="fa fa-backward" aria-hidden="true"></i>
+                    Bài viết
+                </a>
+                {{#unless this.error}}
+                <button type="submit" class="btn btn-danger" formaction="/editor/delete">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    Xóa
+                </button>
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    Lưu
+                </button>
+                {{/unless}}
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+
+    CKEDITOR.replace('editor');
+
+    $('#datepicker').datepicker({
+        uiLibrary: 'bootstrap4',
+        format: 'yyyy-mm-dd'
+    });
+
+    var val = $('#NoiDungText').val();
+    CKEDITOR.instances['editor'].setData(val);
+    $("#NoiDungText").remove();
+
+</script>

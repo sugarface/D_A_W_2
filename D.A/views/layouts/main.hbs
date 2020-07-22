@@ -1,152 +1,261 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>BESTNEWS</title>
-    <link rel="icon" href="img/core-img/favicon.ico">
-    <link rel="stylesheet" href="css/classy-nav.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="scss/style.scss">
-    <link rel="stylesheet" href="scss/_fonts.scss">
-    <link rel="stylesheet" href="scss/_mixin.scss">
-    <link rel="stylesheet" href="scss/_responsive.scss">
-    <link rel="stylesheet" href="scss/_theme_color.scss">
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Báo Điện Tử TH16-News</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/public/images/favicon.ico">
+  <link rel="stylesheet" href="/public/style.css">
+  <link href='https:/fonts.googleapis.com/css?family=Nunito+Sans:400,500,700|Quicksand:500,700' rel='stylesheet'
+    type='text/css'>
+  {{!-- <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '{your-app-id}',
+        cookie: true,
+        xfbml: true,
+        version: '{api-version}'
+      });
+
+      FB.AppEvents.logPageView();
+
+    };
+
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script> --}}
+
+  {{{_sections.css}}}
 </head>
 
 <body>
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="lds-ellipsis">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-       <header class="header-area">
-        <!-- Navbar Area -->
-        <div class="newsbox-main-menu">
-            <div class="classy-nav-container breakpoint-off">
-                <div class="container">
-                    <!-- Menu -->
-                    <nav class="classy-navbar justify-content-between" id="newsboxNav">
-
-                        <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
-
-                        <!-- Menu -->
-                        <div class="classy-menu">
-
-                            <!-- Close Button -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            <!-- Nav Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li><a href="#">SỨC KHỎE</a>
-                                        <div class="megamenu">
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">LÀM ĐẸP</a></li>
-                                                <li><a href="#">SỐNG VUI KHỎE</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-
-                                    <li><a href="#">THỂ THAO</a>
-                                        <div class="megamenu">
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">TRONG NƯỚC</a></li>
-                                                <li><a href="#">QUỐC TẾ</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-
-                                    <li><a href="#">GIÁO DỤC</a>
-                                        <div class="megamenu">
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">TRUYỂN SINH</a></li>
-                                                <li><a href="#">NGƯỜI THẦY</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="search-form">
-                     <form action="/search" method="get">
-                        <input type="search" name="txtSearch" class="form-control" placeholder="Search ...">
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                     </form>
-                  </div>
-                                    </li>
-                                    <li>
-                                        <div class="top-social-info">
-                                 <a href="/account/login" data-toggle="tooltip" data-placement="bottom"
-                                    title="Đăng nhập">Login</a>
-                                 <li class="list-inline-item">/</li>
-                                 <a href="/account/register" data-toggle="tooltip" data-placement="bottom"
-                                    title="Đăng ký">Register</a>
-                              </div>
-                                    </li>
-                                
-                                
-                                </ul>
-                            </div>
-                            <!-- Nav End -->
-
-                        </div>
-                    </nav>
-                </div>
+  <header class="header-area">
+    <div class="nikki-main-menu">
+      <div class="classy-nav-container breakpoint-off">
+        <div class="container-fluid">
+          <nav class="classy-navbar justify-content-between" id="nikkiNav">
+            <a href="/" class="nav-brand"><img src="/public/img/core-img/logo.jpg" alt=""></a>
+            <div class="classy-navbar-toggler">
+              <span class="navbarToggler"></span>
             </div>
-        </div>
-        </header>
+            <!-- Menu -->
+            <div class="classy-menu">
+              <div class="classycloseIcon">
+                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+              </div>
+              <div class="classynav">
+                <ul>
+                  <li><a href="/">Trang chủ</a></li>
+                  <li><a href="#">Bóng đá</a>
+                    <ul class="dropdown">
+                      {{!-- <li><a href="/Categories/1/products">Bóng đá việt nam</a></li>
+                      <li><a href="/Categories/2/products">Ngoại hạng anh</a></li> --}}
+                      {{#each lcCategoriesChild}}
+                      {{#if_eq IDCha 1}}
+                      <li><a href="/Categories/{{ID}}/products">{{TenLoaiCon}}</a></li>
+                      {{/if_eq}}
+                      {{/each}}
+                    </ul>
+                  </li>
+                  <li><a href="#">Ẩm thực</a>
+                    <ul class="dropdown">
+                      {{!-- <li><a href="/Categories/3/products">Ẩm thực việt nam</a></li>
+                      <li><a href="/Categories/4/products">Ẩm thực thế giới</a></li> --}}
+                      {{#each lcCategoriesChild}}
+                      {{#if_eq IDCha 2}}
+                      <li><a href="/Categories/{{ID}}/products">{{TenLoaiCon}}</a></li>
+                      {{/if_eq}}
+                      {{/each}}
+                    </ul>
+                  </li>
+                  <li><a href="#">Pháp luật</a>
+                    <ul class="dropdown">
+                      {{!-- <li><a href="/Categories/5/products">Vụ án nổi tiếng</a></li>
+                      <li><a href="/Categories/6/products">Trọng án</a></li> --}}
+                      {{#each lcCategoriesChild}}
+                      {{#if_eq IDCha 3}}
+                      <li><a href="/Categories/{{ID}}/products">{{TenLoaiCon}}</a></li>
+                      {{/if_eq}}
+                      {{/each}}
+                    </ul>
+                  </li>
+                  <li><a href="#">Showbiz</a>
+                    <ul class="dropdown">
+                      {{!-- <li><a href="/Categories/7/products">Sao Việt</a></li>
+                      <li><a href="/Categories/8/products">Các Nước Khác</a></li> --}}
+                      {{#each lcCategoriesChild}}
+                      {{#if_eq IDCha 4}}
+                      <li><a href="/Categories/{{ID}}/products">{{TenLoaiCon}}</a></li>
+                      {{/if_eq}}
+                      {{/each}}
+                    </ul>
+                  </li>
+                  <li><a href="#">Âm nhạc</a>
+                    <ul class="dropdown">
+                      {{!-- <li><a href="/Categories/9/products">Việt Nam</a></li>
+                      <li><a href="/Categories/10/products">US-UK</a></li>
+                      <li><a href="/Categories/11/products">KPOP</a></li> --}}
+                      {{#each lcCategoriesChild}}
+                      {{#if_eq IDCha 5}}
+                      <li><a href="/Categories/{{ID}}/products">{{TenLoaiCon}}</a></li>
+                      {{/if_eq}}
+                      {{/each}}
+                    </ul>
+                  </li>
+                  {{!-- <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Thông tin">About</a>
+                  </li>
+                  <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Liên hệ">Contact</a>
+                  </li> --}}
+                </ul>
 
-     {{{body}}}
+                <!-- Search Form -->
+                <div class="search-form">
+                  <form action="/search" method="get">
+                    <input type="search" name="txtSearch" class="form-control" placeholder="Search ...">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                  </form>
+                </div>
 
-        <footer class="footer-area">
-        <!-- Footer Logo -->
-        <div class="footer-logo mb-100">
-            <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
-        </div>
-        <!-- Footer Content -->
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="footer-content text-center">
-                        <!-- Social Info -->
-                        <div class="footer-social-info">
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="behance"><i class="fa fa-behance" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                <!-- Social Button -->
+                <!-- Only in desktop nav -->
+                <form id="frmLogout" action="/account/logout" method="POST"></form>
+
+
+                {{#if isAuthenticated}}
+                {{#if_eq authUser.PhanQuyen 1}}
+                <div class="classynav">
+                  <ul>
+                    <li><a href="#">Chào, <strong>{{authUser.HoTen}}</a>
+                      <ul class="dropdown">
+                        <li><a href="/admin/adminControl">Trang quản lý</a></li>
+                        <li><a href="/account/profile/{{authUser.ID}}">Thông tin cá nhân</a></li>
+                        <li><a href="/account/editpassword/{{authUser.ID}}">Đổi mật khẩu</a></li>
+                        <li><a href="javascript:$('#frmLogout').submit();">Đăng xuất</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  {{/if_eq}}
+                  {{#if_eq authUser.PhanQuyen 0}}
+                  <div class="classynav">
+                    <ul>
+                      <li><a href="#">Chào, <strong>{{authUser.HoTen}}</a>
+                        <ul class="dropdown">
+                          <li><a href="/account/profile/{{authUser.ID}}">Thông tin cá nhân</a></li>
+                          <li><a href="/account/editpassword/{{authUser.ID}}">Đổi mật khẩu</a></li>
+                          <li><a href="javascript:$('#frmLogout').submit();">Đăng xuất</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                    {{/if_eq}}
+                    {{#if_eq authUser.PhanQuyen 2}}
+                    <div class="classynav">
+                      <ul>
+                        <li><a href="#">Chào, <strong>{{authUser.HoTen}}</a>
+                          <ul class="dropdown">
+                            <li><a href="/writer/add">Thêm Bài Viết</a></li>
+                            <li><a href="/writer/loadpost">Bài Đã Viết</a></li>
+                            <li><a href="/account/profile/{{authUser.ID}}">Thông tin cá nhân</a></li>
+                            <li><a href="/account/editpassword/{{authUser.ID}}">Đổi mật khẩu</a></li>
+                            <li><a href="javascript:$('#frmLogout').submit();">Đăng xuất</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                      {{/if_eq}}
+                      {{#if_eq authUser.PhanQuyen 3}}
+                      <div class="classynav">
+                        <ul>
+                          <li><a href="#">Chào, <strong>{{authUser.HoTen}}</a>
+                            <ul class="dropdown">
+                              <li><a href="/editor">Trang quản lý</a></li>
+                              <li><a href="/account/profile/{{authUser.ID}}">Thông tin cá nhân</a></li>
+                              <li><a href="/account/editpassword/{{authUser.ID}}">Đổi mật khẩu</a></li>
+                              <li><a href="javascript:$('#frmLogout').submit();">Đăng xuất</a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                        {{/if_eq}}
+                        {{else}}
+                        <div class="top-social-info">
+                          <a href="/account/login" data-toggle="tooltip" data-placement="bottom"
+                            title="Đăng nhập">Login</a>
+                          <li class="list-inline-item">/</li>
+                          <a href="/account/register" data-toggle="tooltip" data-placement="bottom"
+                            title="Đăng ký">Register</a>
                         </div>
+                        {{/if}}
+                      </div>
+                      <!-- Nav End -->
                     </div>
-                </div>
-            </div>
+          </nav>
         </div>
-        </footer>
+      </div>
+    </div>
+  </header>
 
+  <!-- Body -->
+  <div>
+    {{{body}}}
+  </div>
+
+  {{!-- <footer class="footer-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <!-- Footer Social Info -->
+          <div class="footer-social-info d-flex align-items-center justify-content-between">
+            <a href="#"><i class="fa fa-facebook"></i><span>Facebook</span></a>
+            <a href="#"><i class="fa fa-twitter"></i><span>Twitter</span></a> 
+            <a href="#"><i class="fa fa-google-plus"></i><span>Google +</span></a>
+            <a href="#"><i class="fa fa-tumblr"></i><span>Tumblr</span></a> 
+            <a href="#"><i class="fa fa-github"></i><span>Github</span></a>
+            <a href="#"><i class="fa fa-instagram"></i><span>Instagram</span></a>
+            <a href="#"><i class="fa fa-youtube"></i><span>Youtube</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="copywrite-text">
+            <p>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              Copyright &copy;
+              <script>document.write(new Date().getFullYear());</script> | Design by <a href="#"
+                target="_blank">Team Con Sâu (689, 701, 729)</a>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer> --}}
+  <!--SCRIPTS-->
+  <script src="/public/js/jquery/jquery-2.2.4.min.js"></script>
+  <script src="/public/js/bootstrap/popper.min.js"></script>
+  <script src="/public/js/bootstrap/bootstrap.min.js"></script>
+  <script src="/public/js/plugins/plugins.js"></script>
+  <script src="/public/js/active.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
+  <script src="https://www.google.com/recaptcha/api/siteverify"></script>
+  <script src="/public/ckeditor/ckeditor.js"></script>
+  {{!-- <script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script> --}}
+  {{!-- <script>
+    grecaptcha.ready(function () {
+      grecaptcha.execute('6LfUSakUAAAAAP-DKEypC7-r7CEqFqvvlOMAHv11', { action: 'homepage' }).then(function (token) {
+         ...
+      });
+  });
+  </script> --}}
+  {{{_sections.js}}}
 </body>
-<!-- jQuery-2.2.4 js -->
-<script src="js/jquery/jquery-2.2.4.min.js"></script>
-<!-- Popper js -->
-<script src="js/bootstrap/popper.min.js"></script>
-<!-- Bootstrap js -->
-<script src="js/bootstrap/bootstrap.min.js"></script>
-<!-- All Plugins js -->
-<script src="js/plugins/plugins.js"></script>
-<!-- Active js -->
-<script src="js/active.js"></script>
-
 
 </html>

@@ -1,0 +1,33 @@
+<div class="section">
+    <div class="container">
+        <div class="row">
+            {{#each this.baiviet}}
+            <div class="col-md-12">
+                <div class="post">
+                    <a class="post-img" href="/products/{{ProID}}"><img src="{{this.AnhDaiDien}}"
+                            alt="#"></a>
+                    <div class="post-body">
+                        <div class="post-meta">
+                            <a class="post-category cat-1"
+                                href="/Categories/{{ID}}/products">{{this.ChuyenMucConID}}</a>
+                            <span class="post-date">{{this.NgayDang}}</span>
+                        </div>
+                        <h3 class="post-title"><a href="/products/{{ProID}}">{{this.TieuDe}}</a></h3>
+                        <div class="text-right">
+                            {{#ifNull this.TinhTrang}}
+                            <button type="button" class="btn btn-outline-danger mt-2" disabled>Không được duyệt</button>
+                            {{else}}
+                            {{#ifConTrue this.TinhTrang}}
+                            <button type="button" class="btn btn-outline-success mt-2" disabled>Đã được duyệt</button>
+                            {{else}}
+                            <button type="button" class="btn btn-outline-danger mt-2" disabled>Chưa được duyệt</button>
+                            {{/ifConTrue}}
+                        </div>
+                        {{/ifNull}}
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

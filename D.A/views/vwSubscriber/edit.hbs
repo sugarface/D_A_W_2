@@ -1,0 +1,40 @@
+<form action="/subscriber/update" method="POST">
+    <div class="card shadow">
+        <h5 class="card-header">
+            GIA HẠN ĐỘC GIẢ
+        </h5>
+        <div class="card-body">
+            {{#if  this.error}}
+            <div class="alert alert-danger" role="alert">
+                Invalid TagID. <a href="/subscriber" class="alert-link">Back to list</a>
+            </div>
+            {{else}}
+            <div class="form-group">
+                <label for="txtID">ID </label>
+                <input readonly id="txtID" name="ID" type="text" class="form-control" value="{{this.qlSubscriber.ID}}">
+            </div>
+            <div class="form-group">
+                <label for="txtTenDocGia">Tên độc giả</label>
+                <input id="txtTenDocGia" name="TenDocGia" type="text" class="form-control" placeholder="Tên"
+                    value="{{this.qlSubscriber.TenDocGia}}">
+            </div>
+            <div class="form-group">
+                <label for="txtThoiHan">Thời hạn (dd/mm/yyyy)</label>
+                <input id="txtThoiHan" name="dob" type="text" class="form-control">
+            </div>
+            {{/if}}
+        </div>
+        <div class="card-footer text-right">
+            <a class="btn btn-outline-primary" href="/subscriber" role="button" title="Back">
+                <i class="fa fa-backward" aria-hidden="true"></i>
+                List
+            </a>
+            {{#unless this.error}}
+            <button type="submit" class="btn btn-success">
+                <i class="fa fa-check" aria-hidden="true"></i>
+                Save
+            </button>
+            {{/unless}}
+        </div>
+    </div>
+</form>

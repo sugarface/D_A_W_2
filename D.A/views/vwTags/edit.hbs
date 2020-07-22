@@ -1,0 +1,45 @@
+<form action="/tag/update" method="POST">
+    <div class="card shadow">
+        <h5 class="card-header">
+            QUẢN LÝ TAG
+        </h5>
+        <div class="card-body">
+            {{#if  this.error}}
+            <div class="alert alert-danger" role="alert">
+                Invalid TagID. <a href="/tag" class="alert-link">Back to list</a>
+            </div>
+            {{else}}
+            <div class="form-group">
+                <label for="txtTagID">TagID </label>
+                <input readonly id="txtTagID" name="TagID" type="text" class="form-control" value="{{this.qltags.TagID}}">
+            </div>
+            <div class="form-group">
+                <label for="txtTenTag">Tên tag</label>
+                <input id="txtTenTag" name="TenTag" type="text" class="form-control" placeholder="Tên"
+                    value="{{this.qltags.TenTag}}">
+            </div>
+            {{!-- <div class="form-group">
+                <label for="txtid">ID Cha</label>
+                <input id="txtidcha" name="IDCha" type="text" class="form-control" placeholder="IDCha"
+                    value="{{this.chuyenmuccon.IDCha}}">
+            </div> --}}
+            {{/if}}
+        </div>
+        <div class="card-footer text-right">
+            <a class="btn btn-outline-primary" href="/tag" role="button" title="Back">
+                <i class="fa fa-backward" aria-hidden="true"></i>
+                List
+            </a>
+            {{#unless this.error}}
+            <button type="submit" class="btn btn-danger" formaction="/tag/delete">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                Delete
+            </button>
+            <button type="submit" class="btn btn-success">
+                <i class="fa fa-check" aria-hidden="true"></i>
+                Save
+            </button>
+            {{/unless}}
+        </div>
+    </div>
+</form>
