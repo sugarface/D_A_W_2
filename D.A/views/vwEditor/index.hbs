@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card shadow mt-5 mb-5">
+                <div class="card-header text-center font-weight-bold">
+                    TRANG QUẢN TRỊ VIÊN
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-center"><a href="/editor"><i class="fa fa-file-text"
+                                aria-hidden="true"></i> Trang quản lý bài viết</a></li>
+                    <li class="list-group-item text-center"><a href="#"><i class="fa fa-check"
+                                aria-hidden="true"></i> Xem bài đã duyệt</a></li>
+                    <li class="list-group-item text-center"><a href="#"><i class="fa fa-pause"
+                                aria-hidden="true"></i> Xem bài chưa duyệt</a></li>
+                    <li class="list-group-item text-center"><a href="#"><i class="fa fa-times"
+                                aria-hidden="true"></i> Bài viết bị từ chối</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="card shadow mt-5 mb-5">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="panel col-sm-9"> Xem tất cả các bài viết</div>
+                    </div>
+                </div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">ProID</th>
+                            <th scope="col">Tiêu đề bài viết</th>
+                            <th scope="col">Tình Trạng</th>
+                            <th scope="col">Xét Duyệt</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each this.baiviet}}
+                        <tr>
+                            <th scope="row">{{ProID}}</th>
+                            <td><a href="/products/{{ProID}}">{{TieuDe}}</a></td>
+                            <td>{{TinhTrang}}</td>
+                            <td class="text-right">
+                                <a name="" id="" class="btn btn-primary btn-xs" href="/editor/editapproved/{{ProID}}"
+                                    role="button" title="Edit">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

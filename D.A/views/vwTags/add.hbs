@@ -1,0 +1,33 @@
+<div class="card shadow mt-3">
+    <h5 class="card-header">
+          DANH SÁCH TAG
+    </h5>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-6">
+                    <form action="/tag/add" method="POST">
+                    <div class="form-group">
+                        <label for="txtTenTag">Tên Tag</label>
+                        <input id="txtTenTag" name="TenTag" type="text" class="form-control" placeholder="Tên">
+                    </div>
+                    {{!-- <div class="form-group">
+                        <label for="txtIDcha">ID Cha</label>
+                        <input id="txtIDcha" name="IDCha" type="text" class="form-control"   placeholder="ID">
+                    </div> --}}
+                    <div >
+                        <a class="btn btn-outline-primary" href="/tag" role="button" title="Back">
+                            <i class="fa fa-backward" aria-hidden="true"></i>
+                            List
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                            Save
+                        </button>
+                    </div>                    
+                    
+                    </form>
+                </div> 
+            </div>     
+        </div>
+</div>
+
