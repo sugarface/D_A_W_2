@@ -20,6 +20,29 @@
     <link rel="stylesheet" href="scss/_mixin.scss">
     <link rel="stylesheet" href="scss/_responsive.scss">
     <link rel="stylesheet" href="scss/_theme_color.scss">
+
+{{!-- <script>
+         window.fbAsyncInit = function () {
+           FB.init({
+             appId: '{your-app-id}',
+             cookie: true,
+             xfbml: true,
+             version: '{api-version}'
+           });
+         
+           FB.AppEvents.logPageView();
+         
+         };
+         
+         (function (d, s, id) {
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) { return; }
+           js = d.createElement(s); js.id = id;
+           js.src = "https://connect.facebook.net/en_US/sdk.js";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+      </script> --}}
+      {{{_sections.css}}}
 </head>
 
 <body>
@@ -56,8 +79,15 @@
                                     <li><a href="#">SỨC KHỎE</a>
                                         <div class="megamenu">
                                             <ul class="single-mega cn-col-4">
-                                                <li><a href="#">LÀM ĐẸP</a></li>
-                                                <li><a href="#">SỐNG VUI KHỎE</a></li>
+                                                {{!--
+                                                <li><a href="/Categories/1/products">LÀM ĐẸP</a></li>
+                                                <li><a href="/Categories/2/products">SỐNG VUI KHỎE</a></li>
+                                                --}}
+                                                {{#each lcCategoriesChild}}
+                                                {{#if_eq IDCha 1}}
+                                                <li><a href="/Categories/{{ID}}/products">{{TenLoaiCon}}</a></li>
+                                                {{/if_eq}}
+                                                {{/each}}
                                             </ul>
                                         </div>
                                     </li>
@@ -65,17 +95,31 @@
                                     <li><a href="#">THỂ THAO</a>
                                         <div class="megamenu">
                                             <ul class="single-mega cn-col-4">
-                                                <li><a href="#">TRONG NƯỚC</a></li>
-                                                <li><a href="#">QUỐC TẾ</a></li>
+                                                {{!--
+                                                <li><a href="/Categories/3/products">TRONG NƯỚC</a></li>
+                                                <li><a href="/Categories/4/products">QUỐC TẾ</a></li>
+                                                --}}
+                                                {{#each lcCategoriesChild}}
+                                                {{#if_eq IDCha 2}}
+                                                <li><a href="/Categories/{{ID}}/products">{{TenLoaiCon}}</a></li>
+                                                {{/if_eq}}
+                                                {{/each}}
                                             </ul>
                                         </div>
                                     </li>
 
-                                    <li><a href="#">GIÁO DỤC</a>
+                                    <li><a href="#">GIẢI TRÍ</a>
                                         <div class="megamenu">
                                             <ul class="single-mega cn-col-4">
-                                                <li><a href="#">TRUYỂN SINH</a></li>
-                                                <li><a href="#">NGƯỜI THẦY</a></li>
+                                                {{!--
+                                                <li><a href="/Categories/5/products">SAO VIỆT</a></li>
+                                                <li><a href="/Categories/6/products">SAO QUỐC TẾ</a></li>
+                                                --}}
+                                                {{#each lcCategoriesChild}}
+                                                {{#if_eq IDCha 3}}
+                                                <li><a href="/Categories/{{ID}}/products">{{TenLoaiCon}}</a></li>
+                                                {{/if_eq}}
+                                                {{/each}}
                                             </ul>
                                         </div>
                                     </li>
@@ -88,6 +132,65 @@
                   </div>
                                     </li>
                                     <li>
+                                        <form id="frmLogout" action="/account/logout" method="POST"></form>
+                  {{#if isAuthenticated}}
+                  {{#if_eq authUser.PhanQuyen 1}}
+                  <div class="classynav">
+                     <ul>
+                        <li>
+                           <a href="#">Chào, <strong>{{authUser.HoTen}}</a>
+                           <ul class="dropdown">
+                              <li><a href="/admin/adminControl">Trang quản lý</a></li>
+                              <li><a href="/account/profile/{{authUser.ID}}">Thông tin cá nhân</a></li>
+                              <li><a href="/account/editpassword/{{authUser.ID}}">Đổi mật khẩu</a></li>
+                              <li><a href="javascript:$('#frmLogout').submit();">Đăng xuất</a></li>
+                           </ul>
+                        </li>
+                     </ul>
+                     {{/if_eq}}
+                     {{#if_eq authUser.PhanQuyen 0}}
+                     <div class="classynav">
+                        <ul>
+                           <li>
+                              <a href="#">Chào, <strong>{{authUser.HoTen}}</a>
+                              <ul class="dropdown">
+                                 <li><a href="/account/profile/{{authUser.ID}}">Thông tin cá nhân</a></li>
+                                 <li><a href="/account/editpassword/{{authUser.ID}}">Đổi mật khẩu</a></li>
+                                 <li><a href="javascript:$('#frmLogout').submit();">Đăng xuất</a></li>
+                              </ul>
+                           </li>
+                        </ul>
+                        {{/if_eq}}
+                        {{#if_eq authUser.PhanQuyen 2}}
+                        <div class="classynav">
+                           <ul>
+                              <li>
+                                 <a href="#">Chào, <strong>{{authUser.HoTen}}</a>
+                                 <ul class="dropdown">
+                                    <li><a href="/writer/add">Thêm Bài Viết</a></li>
+                                    <li><a href="/writer/loadpost">Bài Đã Viết</a></li>
+                                    <li><a href="/account/profile/{{authUser.ID}}">Thông tin cá nhân</a></li>
+                                    <li><a href="/account/editpassword/{{authUser.ID}}">Đổi mật khẩu</a></li>
+                                    <li><a href="javascript:$('#frmLogout').submit();">Đăng xuất</a></li>
+                                 </ul>
+                              </li>
+                           </ul>
+                           {{/if_eq}}
+                           {{#if_eq authUser.PhanQuyen 3}}
+                           <div class="classynav">
+                              <ul>
+                                 <li>
+                                    <a href="#">Chào, <strong>{{authUser.HoTen}}</a>
+                                    <ul class="dropdown">
+                                       <li><a href="/editor">Trang quản lý</a></li>
+                                       <li><a href="/account/profile/{{authUser.ID}}">Thông tin cá nhân</a></li>
+                                       <li><a href="/account/editpassword/{{authUser.ID}}">Đổi mật khẩu</a></li>
+                                       <li><a href="javascript:$('#frmLogout').submit();">Đăng xuất</a></li>
+                                    </ul>
+                                 </li>
+                              </ul>
+                              {{/if_eq}}
+                              {{else}}
                                         <div class="top-social-info">
                                  <a href="/account/login" data-toggle="tooltip" data-placement="bottom"
                                     title="Đăng nhập">Login</a>
@@ -95,6 +198,7 @@
                                  <a href="/account/register" data-toggle="tooltip" data-placement="bottom"
                                     title="Đăng ký">Register</a>
                               </div>
+                              {{/if}}
                                     </li>
                                 
                                 
@@ -136,7 +240,7 @@
         </div>
         </footer>
 
-</body>
+
 <!-- jQuery-2.2.4 js -->
 <script src="js/jquery/jquery-2.2.4.min.js"></script>
 <!-- Popper js -->
@@ -147,6 +251,6 @@
 <script src="js/plugins/plugins.js"></script>
 <!-- Active js -->
 <script src="js/active.js"></script>
-
-
+{{{_sections.js}}}
+</body>
 </html>

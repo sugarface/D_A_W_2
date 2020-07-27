@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card shadow mt-5 mb-5">
+                <div class="card-header text-center font-weight-bold">
+                    TRANG QUẢN TRỊ VIÊN
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-center"><a href="/admin/adminControl"><i class="fa fa-snowflake-o"
+                                aria-hidden="true"></i> Trang Administrator</a></li>
+                    <li class="list-group-item text-center"><a href="/account"><i class="fa fa-users"
+                                aria-hidden="true"></i> Quản lý người dùng</a></li>
+                    <li class="list-group-item text-center"><a href="/categories"><i class="fa fa-folder-open-o"
+                                aria-hidden="true"></i> Quản lý danh mục</a></li>
+                    <li class="list-group-item text-center"><a class="" href="/products/uppost"><i class="fa fa-plus"
+                                aria-hidden="true"></i> Thêm bài viết</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="card shadow mt-5 mb-5">
+                <form action="/account/update" method="POST">
+    <div class="card shadow">
+        <h5 class="card-header">
+            SỬA TÀI KHOẢN
+        </h5>
+        <div class="card-body">
+            {{#if  this.error}}
+            <div class="alert alert-danger" role="alert">
+                Invalid CategoryID. <a href="/account" class="alert-link">Back to list</a>
+            </div>
+            {{else}}
+            <div class="form-group">
+                <label for="txtid">ID </label>
+                <input readonly id="txtid" name="ID" type="text" class="form-control" value="{{this.nguoidung.ID}}">
+            </div>
+            <div class="form-group">
+                <label for="txtNguoiDung">Người Dùng</label>
+                <input id="txtNguoiDung" name="NguoiDung" type="text" class="form-control" placeholder="Tên"
+                    value="{{this.nguoidung.NguoiDung}}">
+            </div>
+            <div class="form-group">
+                <label for="txtHoTen">Họ Tên</label>
+                <input id="txtHoTen" name="HoTen" type="text" class="form-control" placeholder="Tên"
+                    value="{{this.nguoidung.HoTen}}">
+            </div>
+            <div class="form-group">
+                <label for="txtButDanh">Bút Danh</label>
+                <input id="txtButDanh" name="ButDanh" type="text" class="form-control" placeholder="Tên"
+                    value="{{this.nguoidung.ButDanh}}">
+            </div>
+            <div class="form-group">
+                <label for="txtEmail">Email</label>
+                <input id="txtEmail" name="Email" type="text" class="form-control" placeholder="Tên"
+                    value="{{this.nguoidung.Email}}">
+            </div>
+            <div class="form-group">
+                <label for="txtPhanQuyenl">PhanQuyen</label>
+                <input id="txtPhanQuyen" name="PhanQuyen" type="text" class="form-control" placeholder="PhanQuyen"
+                    value="{{this.nguoidung.PhanQuyen}}">
+            </div>
+            
+            {{/if}}
+        </div>
+        <div class="card-footer text-right">
+            <a class="btn btn-info" href="/account" role="button" title="Back">
+                <i class="fa fa-backward" aria-hidden="true"></i>
+                Tài khoản
+            </a>
+            {{#unless this.error}}
+            <button type="submit" class="btn btn-danger" formaction="/account/delete">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                Xóa
+            </button>
+            <button type="submit" class="btn btn-success">
+                <i class="fa fa-check" aria-hidden="true"></i>
+                Lưu
+            </button>
+            {{/unless}}
+        </div>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+</div>

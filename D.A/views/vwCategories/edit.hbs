@@ -1,0 +1,45 @@
+<form action="/categories/update" method="POST">
+    <div class="card shadow">
+        <h5 class="card-header">
+            CHUYÊN MỤC CON
+        </h5>
+        <div class="card-body">
+            {{#if  this.error}}
+            <div class="alert alert-danger" role="alert">
+                Invalid CategoryID. <a href="/categories" class="alert-link">Back to list</a>
+            </div>
+            {{else}}
+            <div class="form-group">
+                <label for="txtid">ID </label>
+                <input readonly id="txtid" name="ID" type="text" class="form-control" value="{{this.chuyenmuccon.ID}}">
+            </div>
+            <div class="form-group">
+                <label for="txttenloaicha">Tên chuyên mục</label>
+                <input id="txttenloaicon" name="TenLoaiCon" type="text" class="form-control" placeholder="Tên"
+                    value="{{this.chuyenmuccon.TenLoaiCon}}">
+            </div>
+            <div class="form-group">
+                <label for="txtid">ID Cha</label>
+                <input id="txtidcha" name="IDCha" type="text" class="form-control" placeholder="IDCha"
+                    value="{{this.chuyenmuccon.IDCha}}">
+            </div>
+            {{/if}}
+        </div>
+        <div class="card-footer text-right">
+            <a class="btn btn-outline-primary" href="/categories" role="button" title="Back">
+                <i class="fa fa-backward" aria-hidden="true"></i>
+                List
+            </a>
+            {{#unless this.error}}
+            <button type="submit" class="btn btn-danger" formaction="/categories/delete">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                Delete
+            </button>
+            <button type="submit" class="btn btn-success">
+                <i class="fa fa-check" aria-hidden="true"></i>
+                Save
+            </button>
+            {{/unless}}
+        </div>
+    </div>
+</form>

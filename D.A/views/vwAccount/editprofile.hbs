@@ -1,0 +1,111 @@
+{{#section 'js'}}
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script>
+  $(function () {
+    //$('#txtDOB').datetimepicker({
+    //format: 'd/m/Y',
+    //timepicker: false,
+    //mask: true,
+    //});
+    $('#editprofileForm').validate({
+      rules: {
+        NguoiDung: {
+          required: true,
+        },
+        HoTen: {
+          required: true,
+        },
+        Email: {
+          required: true,
+          email: true
+        },
+        dob: {
+          required: true,
+        },
+      },
+      messages: {
+        NguoiDung: {
+          required: 'Your username is required.'
+        },
+        HoTen: {
+          required: 'Valid full name is required.',
+        },
+        Email: {
+          required: 'Please enter a valid email address.',
+          email: 'Please enter a valid email address.'
+        },
+        dob: {
+          required: 'Valid date of birth is required.',
+        },
+      },
+      errorElement: 'small',
+      errorClass: 'help-block text-warning',
+      validClass: 'is-valid',
+      highlight: function (e) {
+        $(e).removeClass('is-valid').addClass('is-invalid');
+      },
+      unhighlight: function (e) {
+        $(e).removeClass('is-invalid').addClass('is-valid');
+      },
+    });
+  })
+</script>
+{{/section}}
+
+<form novalidate id="editprofileForm" action="" method="POST">
+  {{#if err_message}}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    {{err_message}}
+  </div>
+  {{/if}}
+
+  <div class="row justify-content-center">
+    <div class="col-sm-6 ">
+      <div class="card shadow ">
+        <h5 class="card-header">
+          Change profile
+        </h5>
+        <div class="card-body">
+
+          <div class="form-group">
+            <label for="txtName">Họ tên</label>
+            <input type="text" class="form-control" id="txtName" name="HoTen" value="{{this.editprofile.HoTen}}">
+          </div>
+          <div class="form-group">
+            <label for="txtButDanh">Bút danh</label>
+            <input type="text" class="form-control" id="txtButDanh" name="butdanh" value="{{this.editprofile.ButDanh}}">
+          </div>
+          <div class="form-group">
+            <label for="txtEmail">Email</label>
+            <input type="text" class="form-control" id="txtEmail" name="Email" value="{{this.editprofile.Email}}">
+          </div>
+          <div class="form-group">
+            <label for="txtDOB">Ngày sinh (dd/mm/yyyy)</label>
+            <input type="text" class="form-control" id="txtDOB" name="dob">
+          </div>
+        </div>
+
+        <div class="card-footer float-left">
+          <a class="btn btn-outline-primary" href="/account/profile/{{this.editprofile.ID}}" role="button" title="Back">
+            <i class="fa fa-backward" aria-hidden="true"></i>
+            Back
+          </a>
+          <button type="submit" class="btn btn-success float-right">
+            <i class="fa fa-check" aria-hidden="true"></i>
+            Cập nhật
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+</form>

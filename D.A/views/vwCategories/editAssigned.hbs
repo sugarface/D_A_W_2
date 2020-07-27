@@ -1,0 +1,54 @@
+<form action="/categories/assigned/update" method="POST">
+    <div class="card shadow">
+        <h5 class="card-header">
+            CHUYÊN MỤC
+        </h5>
+        <div class="card-body">
+            {{#if  this.error}}
+            <div class="alert alert-danger" role="alert">
+                Invalid CategoryID. <a href="/categories/assigned" class="alert-link">Back to list</a>
+            </div>
+            {{else}}
+            <div class="form-group">
+                <label for="txtid">ID </label>
+                <input readonly id="txtid" name="ID" type="text" class="form-control"
+                    value="{{this.phancongchuyenmuc.ID}}">
+            </div>
+            {{!-- <div class="form-group">
+                <label for="txtTenloaicha">Tên chuyên mục</label>
+                <input id="txtTenloaicon" name="AssignedCategories" type="text" class="form-control" placeholder="Tên"
+                    value="{{this.phancongchuyenmuc.AssignedCategories}}">
+            </div> --}}
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Chuyên mục</label>
+                </div>
+                <select required class="custom-select" id="ChuyenMucChaID" name="AssignedCategories">
+                    <option value="{{this.phancongchuyenmuc.AssignedCategories}}">Choose...{{this.phancongchuyenmuc.AssignedCategories}}</option>
+                    <option value="1">Bóng Đá Việt Nam</option>
+                    <option value="2">Ngoại Hạng Anh</option>
+                    <option value="3">Ẩm thực Việt Nam</option>
+                    <option value="4">Ẩm thực thế giới</option>
+                    <option value="5">Vụ án nổi tiếng</option>
+                </select>
+            </div>
+            {{/if}}
+        </div>
+        <div class="card-footer text-right">
+            <a class="btn btn-outline-primary" href="/categories/assigned" role="button" title="Back">
+                <i class="fa fa-backward" aria-hidden="true"></i>
+                List
+            </a>
+            {{#unless this.error}}
+            {{!-- <button type="submit" class="btn btn-danger" formaction="/categories/delete">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                Delete
+            </button> --}}
+            <button type="submit" class="btn btn-success">
+                <i class="fa fa-check" aria-hidden="true"></i>
+                Save
+            </button>
+            {{/unless}}
+        </div>
+    </div>
+</form>
