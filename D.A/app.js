@@ -13,7 +13,7 @@ app.engine('hbs', exphbs({
     defaultLayout: 'main.hbs',
     partialsDir: 'views/partials',
 }));
-S
+
 app.set('view engine', 'hbs');
 app.use(express.static('./public/'));
 

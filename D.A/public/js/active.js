@@ -12,38 +12,31 @@
 
     // :: 2.0 Nav Active Code
     if ($.fn.classyNav) {
-        $('#newsboxNav').classyNav();
+        $('#nikkiNav').classyNav();
     }
 
-    // :: 3.0 Newsticker Active Code
-    if ($.fn.simpleTicker) {
-        $.simpleTicker($("#breakingNewsTicker"), {
-            speed: 1000,
-            delay: 3000,
-            easing: 'swing',
-            effectType: 'roll'
-        });
-    }
-
-    // :: 4.0 Sliders Active Code
+    // :: 3.0 Sliders Active Code
     if ($.fn.owlCarousel) {
-
         var welcomeSlide = $('.hero-post-slides');
-        var videoSlides = $('.video-slides');
-        var albumSlides = $('.albums-slideshow');
 
         welcomeSlide.owlCarousel({
             items: 1,
             margin: 0,
             loop: true,
-            nav: false,
-            dots: false,
+            nav: true,
+            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+            dots: true,
             autoplay: true,
-            autoplayTimeout: 7000,
+            autoplayTimeout: 5000,
             smartSpeed: 1000,
             animateIn: 'fadeIn',
             animateOut: 'fadeOut'
         });
+
+        welcomeSlide.on('changed.owl.carousel', function (event) {
+            if (!event.namespace || event.property.name != 'position') return
+            $('.page-count').html(event.relatedTarget.relative(event.item.index) + 1 + '<span>' + '/' + event.item.count + '</span>');
+        })
 
         welcomeSlide.on('translate.owl.carousel', function () {
             var slideLayer = $("[data-animation]");
@@ -70,42 +63,9 @@
             var anim_dur = $(this).data('duration');
             $(this).css('animation-duration', anim_dur);
         });
-
-        videoSlides.owlCarousel({
-            items: 3,
-            margin: 30,
-            loop: true,
-            dots: false,
-            autoplay: true,
-            nav: true,
-            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-            responsive: {
-                0: {
-                    items: 1
-                },
-                576: {
-                    items: 2
-                },
-                992: {
-                    items: 3
-                }
-            }
-        });
-    }
-    
-    // :: 5.0 Video Active Code
-    if ($.fn.magnificPopup) {
-        $('.video-btn').magnificPopup({
-            disableOn: 0,
-            type: 'iframe',
-            mainClass: 'mfp-fade',
-            removalDelay: 160,
-            preloader: true,
-            fixedContentPos: false
-        });
     }
 
-    // :: 6.0 ScrollUp Active Code
+    // :: 4.0 ScrollUp Active Code
     if ($.fn.scrollUp) {
         browserWindow.scrollUp({
             scrollSpeed: 1500,
@@ -113,7 +73,7 @@
         });
     }
 
-    // :: 7.0 CounterUp Active Code
+    // :: 5.0 CounterUp Active Code
     if ($.fn.counterUp) {
         $('.counter').counterUp({
             delay: 10,
@@ -121,49 +81,31 @@
         });
     }
 
-    // :: 8.0 Progress Bar Active Code
-    if ($.fn.circleProgress) {
-        $('#circle').circleProgress({
-            size: 160,
-            emptyFill: "rgba(0, 0, 0, .0)",
-            fill: '#a2a2a2',
-            thickness: '3',
-            reverse: true
-        });
-        $('#circle2').circleProgress({
-            size: 160,
-            emptyFill: "rgba(0, 0, 0, .0)",
-            fill: '#a2a2a2',
-            thickness: '3',
-            reverse: true
-        });
-        $('#circle3').circleProgress({
-            size: 160,
-            emptyFill: "rgba(0, 0, 0, .0)",
-            fill: '#a2a2a2',
-            thickness: '3',
-            reverse: true
-        });
-        $('#circle4').circleProgress({
-            size: 160,
-            emptyFill: "rgba(0, 0, 0, .0)",
-            fill: '#a2a2a2',
-            thickness: '3',
-            reverse: true
+    // :: 6.0 Sticky Active Code
+    if ($.fn.sticky) {
+        $(".nikki-main-menu").sticky({
+            topSpacing: 0
         });
     }
 
-    // :: 9.0 Tooltip Active Code
+    // :: 7.0 Tooltip Active Code
     if ($.fn.tooltip) {
-        $('[data-toggle="tooltip"]').tooltip()
+        $('[data-toggle="tooltip"]').tooltip();
     }
 
-    // :: 10.0 Prevent Default a Click
+    // :: 8.0 ScrollDown Active Code
+    $("#scrollDown").on('click', function () {
+        $('html, body').animate({
+            scrollTop: $("#about").offset().top - 85
+        }, 1500);
+    });
+
+    // :: 9.0 prevent default a click
     $('a[href="#"]').on('click', function ($) {
         $.preventDefault();
     });
 
-    // :: 11.0 Wow Active Code
+    // :: 10.0 wow Active Code
     if (browserWindow.width() > 767) {
         new WOW().init();
     }
