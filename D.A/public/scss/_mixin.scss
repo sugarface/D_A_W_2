@@ -50,12 +50,6 @@
     justify-content: center;
 }
 
-@mixin justify-content-end {
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-}
-
 @mixin flex($value) {
     -webkit-box-flex: 0;
     -ms-flex: $value;

@@ -11,6 +11,13 @@
     "license": "ISC",
     "dependencies": {
         "express": "^4.17.1",
-        "express-handlebars": "^4.0.4"
+        "express-handlebars": "^4.0.4",
+        "express-handlebars-sections": "^1.0.1",
+        "handlebars": "^4.7.6",
+        "helper-dateformat": "^1.0.0",
+        "http-errors": "^1.8.0",
+        "morgan": "^1.10.0",
+        "numeral": "^2.0.6",
+        "path": "^0.12.7"
     }
 }
