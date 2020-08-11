@@ -7,6 +7,7 @@ var numeral = require('numeral');
 var path = require('path');
 var handlebars = require('handlebars');
 handlebars.registerHelper('dateformat', require('helper-dateformat'))
+const nodemailer = require('nodemailer');
 
 var app = express();
 // app.use(express.static('/public'));

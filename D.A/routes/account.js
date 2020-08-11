@@ -17,7 +17,7 @@ router.get('/register', (req, res, next) => {
 router.post('/register', (req, res, next) => {
     var entity = req.body;
 
-    //hash the password
+    //băm mk
     var saltRounds = 10;
     var hash = bcrypt.hashSync(req.body.password, saltRounds);
 
@@ -253,8 +253,8 @@ router.post('/forgotpassword', (req, res, next) => {
             var transporter = nodemailer.createTransport({
                 service: 'Gmail',
                 auth: {
-                    user: 'mailserver@gmail.com',
-                    pass: 'password'
+                    user: 'boyaogiac123@gmail.com',
+                    pass: 'phat2611999'
                 }
             });
             var mailOptions = {
