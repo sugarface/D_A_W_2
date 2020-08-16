@@ -54,18 +54,19 @@ module.exports = {
         `);
     },
 
-
-    // // xem danh sách bài viết
-    // allByCat: CatId => {
-    //     return db.load(`
-    //         SELECT bv.*, con.*, DAY(bv.NgayDang) as day, MONTH(bv.NgayDang) AS month, YEAR(bv.NgayDang) AS year
-    //         FROM baiviet bv JOIN chuyenmuccon con 
-    //         ON bv.ChuyenMucConID = con.ID AND bv.ChuyenMucConID = ${CatId} 
-    //     `);
-    // },
+    // 5 bai viet cung cguyen muc
+    sameList: (idCat, id) => {
+        return db.load(` SELECT bv.*, con.*, DAY(bv.NgayDang) AS day, MONTH(bv.NgayDang) AS month, YEAR(bv.NgayDang) AS year  
+        FROM baiviet bv JOIN chuyenmuccon con ON bv.ChuyenMucConID=con.ID
+        WHERE con.ID=${idCat} AND bv.ProID!=${id}
+        ORDER BY rand() desc LIMIT 0,5`);
+    },
+    detailById: (id) => {
+        return db.load(`select *from baiviet where ProID=${id}`);
+    },
 
     // đếm tổng số tag bài viết
-    countByTag: tagId => {
+    countByTag: (tagId) => {
         return db.load(`select count(*) as total from baiviet where TagID = ${tagId}`);
     },
 
@@ -112,7 +113,7 @@ module.exports = {
         `);
     },
 
-    single: id => {
+    single: (id) => {
         return db.load(`
             SELECT bv.*, con.*, DAY(bv.NgayDang) AS day, MONTH(bv.NgayDang) AS month, YEAR(bv.NgayDang) AS year 
             FROM baiviet bv JOIN chuyenmuccon con ON bv.ChuyenMucConID = con.ID

@@ -16,11 +16,6 @@ module.exports = {
         return db.add('docgia', entity);
     },
 
-    // update: entity => {
-    //     var id = entity.ID;
-    //     delete entity.ID;
-    //     return db.update('docgia', 'ID', entity, id);
-    // },
 
     update: (entity, id) => {
         return db.update('docgia', 'ID', entity, id);
