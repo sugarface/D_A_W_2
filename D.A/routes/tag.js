@@ -107,7 +107,11 @@ router.get('/:id/products', (req, res, next) => {
             error: false,
             empty: rows.length === 0,
             tags: rows,
-            page_numbers
+            page_numbers,
+            pre_P: page - 1,
+            next_P: page + 1,
+            go_pre_P: page > 1,
+            go_next_P: page < nPages,
         })
     }).catch(next)
 

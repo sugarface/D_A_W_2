@@ -78,29 +78,24 @@ router.post('/delete', writerRestricted, (req, res) => {
     });
 })
 
-router.get('/:id', (req, res, next) => {
+// newsDetail
+router.get('/:idCat/:id', async(req, res, next) => {
     var id = req.params.id;
-    if (isNaN(id)) {
-        res.render('vwProducts/detail', { error: true });
-        return;
-    }
+    var idCat = req.params.idCat
+        // bo vao day chay song song
+    const [List, sameList] = await Promise.all([
+            productModel.single(id),
+            productModel.sameList(idCat, id)
+        ])
+        //console.log(List);
+    res.render('vwProducts/detail', {
+        List,
+        sameList
+    });
 
-    productModel.single(id)
-        .then(rows => {
-            if (rows.length > 0) {
 
-                var product = rows[0];
 
-                res.render('vwProducts/detail', {
-                    error: false,
-                    product
-                });
-            } else {
-                res.render('vwProducts/detail', {
-                    error: true
-                });
-            }
-        }).catch(next);
+
 })
 
 

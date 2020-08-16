@@ -83,6 +83,7 @@ router.get('/:id/products', (req, res, next) => {
     }
 
     var limit = config.paginate.default;
+    // khai bao bien page de tinh so trang hien len 
     var page = +req.query.page || 1;
     if (page < 1) page = 1;
     var start_offset = (page - 1) * limit;
@@ -118,7 +119,13 @@ router.get('/:id/products', (req, res, next) => {
             error: false,
             empty: rows.length === 0,
             productsCat: rows,
-            page_numbers
+            page_numbers,
+            pre_P: page - 1,
+            next_P: page + 1,
+            go_pre_P: page > 1,
+            go_next_P: page < nPages,
+
+
         })
     }).catch(next)
 

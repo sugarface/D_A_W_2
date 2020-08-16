@@ -124,9 +124,9 @@ router.get('/profile/:id', restricted, (req, res, next) => {
             } else if (rows[0].PhanQuyen == 0) {
                 rows[0].PhanQuyen = "Độc giả";
             } else if (rows[0].PhanQuyen == 2) {
-                rows[0].PhanQuyen = "Người kiểm duyệt";
-            } else if (rows[0].PhanQuyen == 3) {
                 rows[0].PhanQuyen = "Tác giả";
+            } else if (rows[0].PhanQuyen == 3) {
+                rows[0].PhanQuyen = "Người kiểm duyệt";
             }
             if (rows.length > 0) {
                 res.render('vwAccount/profile', {
@@ -259,13 +259,13 @@ router.post('/forgotpassword', (req, res, next) => {
             });
             var mailOptions = {
                 from: '"BESTNEW" <foo@blurdybloop.com>', // sender address
-                to: entity.Email, // list of receivers
+                to: req.body.Email, // list of receivers
                 subject: '[BESTNEW] Thông tin đăng nhập tài khoản', // Subject line
                 text: 'Reset Password', // plaintext body
                 html: `<div>
-            <p>Kính chào bạn ` + user.Name + `</p>
+            <p>Kính chào bạn ` + rows[0].Name + `</p>
             <p>Thông tin đăng nhập mới của bạn trên BESTNEW là:</p>
-            <p>Tên đăng nhập: ` + user.NguoiDung + ` <br> Mật khẩu:  ` + password + `</p>
+            <p>Tên đăng nhập: ` + rows[0].NguoiDung + ` <br> Mật khẩu:  ` + password + `</p>
             <p>Trân trọng,</p>
             <p>----------<br>
             </div>`
