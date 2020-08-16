@@ -9,18 +9,18 @@
                     <div class="post-body">
                         <div class="post-meta">
                             <a class="post-category cat-1"
-                                href="/Categories/{{ID}}/products">{{this.ChuyenMucConID}}</a>
+                                href="/categories/{{ID}}/products">{{this.ChuyenMucConID}}</a>
                             <span class="post-date">{{this.NgayDang}}</span>
                         </div>
                         <h3 class="post-title"><a href="/products/{{ProID}}">{{this.TieuDe}}</a></h3>
                         <div class="text-right">
                             {{#ifNull this.TinhTrang}}
-                            <button type="button" class="btn btn-outline-danger mt-2" disabled>Không được duyệt</button>
+                            <button type="button" class="btn btn-outline-danger mt-2" >Không được duyệt</button>
                             {{else}}
                             {{#ifConTrue this.TinhTrang}}
-                            <button type="button" class="btn btn-outline-success mt-2" disabled>Đã được duyệt</button>
+                            <button type="button" class="btn btn-outline-success mt-2" >Đã được duyệt</button>
                             {{else}}
-                            <button type="button" class="btn btn-outline-danger mt-2" disabled>Chưa được duyệt</button>
+                            <button type="button" class="btn btn-outline-danger mt-2" >Chưa được duyệt</button>
                             {{/ifConTrue}}
                         </div>
                         {{/ifNull}}

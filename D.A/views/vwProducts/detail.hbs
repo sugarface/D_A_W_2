@@ -13,7 +13,7 @@
                             Thể loại không hợp lệ quạy lại <a href="/" class="alert-link">Trang chủ</a>.
                         </div>
                         {{else}}
-                        {{#with this.product}}
+                        {{#each this.List}}
 
                         <div>
                             <div class="text-center mb-50">
@@ -59,14 +59,14 @@
                                     </ol>
                                 </div>
                             </div>
-                            {{/with}}
+                            {{/each}}
                             <!-- Related Post Area -->
 
                             <div class="related-posts clearfix">
                                 <!-- Headline -->
                                 <h4 class="headline">Cùng chuyên mục</h4>
                                 <div class="row">
-                                    {{#each lcSameCategories}}
+                                    {{#each sameList}}
                                     <!-- Single Blog Post -->
                                     <div class="col-12 col-lg-6">
 
@@ -78,10 +78,10 @@
                                             <!-- Content -->
                                             <div class="post-content">
                                                 <p class="post-date">{{day}}/{{month}}/{{year}}</p>
-                                                <a href="#" class="post-title">
+                                                <a href="/products/{{ChuyenMucConID}}/{{ProID}}" class="post-title">
                                                     <h4>{{TieuDe}}</h4>
                                                 </a>
-                                                <p class="post-excerpt">{{{NDTomTat}}}</p>
+                                                <p class="post-excerpt">{{NDTomTat}}</p>
                                             </div>
                                         </div>
                                     </div>
