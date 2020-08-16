@@ -2,6 +2,7 @@ var express = require('express');
 var exphbs = require('express-handlebars');
 var hbs_sections = require('express-handlebars-sections');
 var morgan = require('morgan');
+var bodyParser = require('body-parser');
 var createError = require('http-errors');
 var numeral = require('numeral');
 var path = require('path');
@@ -10,6 +11,8 @@ handlebars.registerHelper('dateformat', require('helper-dateformat'))
 const nodemailer = require('nodemailer');
 
 var app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(express.static('/public'));
 app.use(express.static(path.join(__dirname, '/public')));
 app.use('/public', express.static('public'));
